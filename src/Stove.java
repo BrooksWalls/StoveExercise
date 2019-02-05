@@ -8,6 +8,8 @@
  */
 import java.util.ArrayList;
 
+//import Burner.Temperature;
+
 public class Stove {
 	// Our stove will have 4 burners
 	public final static int NUM_BURNERS = 4;
@@ -24,7 +26,21 @@ public class Stove {
 	 * You must write the following method
 	 */
 	public void displayStove() {
-
+		boolean blazing = false;
+		for(Burner b :burners) {
+			b.display();
+			//checks for red hot alert
+			if (b.getMyTemperature()=="VERY HOT! DON'T TOUCH") {
+				blazing = true;
+				
+			}
+			
+		}
+		if (blazing == true) {
+			System.out.println("RED LIGHT - HOT BURNER ALERT");
+			
+		}
+		
 	}
 	
 	public void turnBurnersUp() {
